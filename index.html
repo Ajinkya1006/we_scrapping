@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pune_Rent_Project</title>
+
+</head>
+<body>
+<div class="login">
+    <h1>Pune House Rent Prediction</h1>
+        <!--Main Input For Receiving Query to ur ML-->
+
+    <Form Action="{{url_for('predict')}}" method="post">
+
+            <input type="text" name ="bhk" placeholder="bhk" required="required"/>
+            <input type="text" name ="area" placeholder="area" required="required"/>
+             <select name="location" id="select">
+                 <option value="default">default</option>
+             </select>
+              <script>
+                  var select =document.getElementById("select")
+                      arr = ["Adarsh Colony", "Adinath Nagar", "Aditya Garden City", "Agarwal Colony", "Ajmera Housing Society", "Akurdi", "Alandi", "Alandi Road", "Amanora Park Town", "Ambe Gaon", "Ambedkar Nagar-Kondhwa", "Ambegaon Budruk", "Ambegaon Pathar", "Anand Nagar-Malwadi", "Anand Park", "Atul Nagar Phase 1", "Aundh", "Aundh Gaon", "Aundh Road", "Azad Nagar-Kothurd", "Azad Nagar-Wanawari", "B.T Kawade Road", "Bajirao Road", "Balewadi", "Balewadi Gaon", "Balewadi Phata", "Balewadi Stadium", "Baner", "Baner - Pashan Link Road", "Baner road", "Barade wadi", "Bavdhan", "Bavdhan Khurd", "Bhagwan Nagar", "Bhairav Nagar", "Bharti Vidyapeeth Campus", "Bhau Patil Road", "Bhavani Peth", "Bhekarai Nagar", "Bhekrai Nagar", "Bhosale Nagar", "Bhosari", "Bhugaon", "Bhujbal Vasti", "Bhukum", "Bhumkar Nagar", "Bhusari Colony", "Bibwewadi", "Bijlinagar", "Bopodi", "Borade Vasti", "Bund Garden Road", "Chakan", "Chandan Nagar", "Charholi", "Charholi Budruk", "Chavan Nagar", "Chikhali", "Chinchwad", "Chinchwad Gaon", "Clover Park View", "Clover Village", "Dangat Patil Nagar", "Dange Chowk", "Dapodi", "Datta Nagar", "Dattawadi", "Daund", "Deepmala Society", "Dehu Road", "Dhamalwadi", "Dhankawadi", "Dhanori", "Dhanori Lohegaon Road", "Dhayari", "Dhayari Phata", "Dhayari Phata Road", "Dhiree Village", "Dighi", "Dutta Nagar-Shani Nagar", "Erandwane", "Fatima Nagar", "Fursungi", "Gadital", "Gahunje", "Gananjay Society", "Ganesh nagar", "Ganga Hamlet", "Ganga Nagar", "Gangadham Kondhwa Road", "Ghorpadi", "Ghotawade Phata", "Gitai Colony", "Godbole Vasti", "Gokul Nagar-Dhanori", "Gondhale Nagar", "Gujrat Colony", "Gulab Nagar", "Hadapsar", "Hadapsar Gaon", "Handewadi", "Handewadi Road", "Happy Colony", "Hill & Dales", "Hingne Khurd", "Hinjewadi", "Hinjewadi Phase 1", "Hinjewadi Phase 2", "Hinjewadi Phase 3", "Hinjewadi Rajiv Gandhi Infotech Park", "Jadhav Wadi", "Jambhulwadi", "Jawakar Nagar", "Kalas", "Kale Padal", "Kalewadi", "Kalewadi Phata", "Kalubai Nagar", "Kalyani Nagar", "Kamshet", "Kanhe", "Karvenagar", "Kasarwadi", "Kaspate Vasti", "Katraj", "Katraj Kondhwa Road", "Keshav Nagar", "Kesnand Theur Road", "Khadki", "Khandve Nagar", "Kharadi", "Khed Shivapur Road", "Kirkitwadi", "Kiwale", "Kolhewadi", "Konarknagar 1", "Kondhwa", "Kondhwa Budruk", "Koregaon Bhima", "Koregaon Park", "Koregaon Park Annexe", "Kothrud", "Laxmi Chowk Hinjewadi", "Laxmi Nagar-Balewadi", "Lohegaon", "Lonavala", "Loni Kalbhor", "Lonkar Nagar", "Magarpatta City", "Mahadeonagar", "Mahalunge", "Manik Baug", "Manjri", "Manjri Budruk", "Market Yard", "Marunji", "Marunji Village", "Mayur Colony", "Model Colony", "Mohan Nagar-Chinchwad", "Moje Chal", "Morwadi", "Moshi", "Mundhwa", "Munjaba Vasti", "NIBM Annexe", "NIBM Road", "Nandel Fata", "Nangargaon", "Narayan Peth", "Narhe", "Nehru Nagar", "New Kalyani Nagar", "New SKF Colony", "New Sangvi", "Newale vasti", "Nigdi", "North Hadapsar", "Nyati County", "Old Sangavi", "Old Sangvi", "Padmavati", "Panchawati", "Panchod", "Panmala", "Parande Nagar", "Pashan", "Pashan-Sus Road", "Pathare Vasti", "Patil Nagar-Bavdhan", "Paud Road", "Perugate", "Phadke Haud", "Phase 3", "Phulenagar", "Phursungi", "Phursungi IT Park", "Pimple Gurav", "Pimple Nilakh", "Pimple Saudagar", "Pimpri", "Pimpri Chinchwad", "Pingale Vasti", "Pirangut", "Pisoli", "Pradhikaran", "Pratik Nagar-Yerawada", "Punawale", "Pune", "Pune - Bangalore Highway", "Pune Solapur Highway", "Purnanagar", "Rahatni", "Rakshak Nagar", "Ramyanagari Housing Society", "Ranjan Gaon", "Rasta Peth", "Ravet", "SECTOR 16", "Sadashiv Peth", "Sade Satra Nali", "Sadhu Vaswani Chowk", "Saibaba Nagar", "Sainath Nagar-Vadgaonsheri", "Sainikwadi", "Salisbury Park", "Sanaswadi", "Sangam Bridge", "Sanjay Park", "Santosh Nagar", "Sarita Nagari Phase 2", "Sasane Colony", "Saswad", "Satar Nagar", "Satav Nagar", "Sector 29", "Sector No 27", "Shaniwar peth", "Shankar Kalat Nagar", "Sharad Nagar-Chikhali", "Shastrinagar", "Shikrapur", "Shirgaon", "Shirur", "Shivaji Nagar", "Shivane", "Shivatej Nagar", "Shivraj Nagar-Rahatni", "Shivthirth nagar", "Shri Ram Colony", "Siddarth Nagar-Aundh", "Siddhartha Nagar", "Siddheshwar Nagar", "Siddhivinayak Vihar", "Sidhart Nagar", "Sinhagad Road", "Sitaee Nagar", "Solapur Road", "Somatne Phata", "Somnath Nagar", "Somwar Peth", "Sun City", "Sunita Nagar", "Sus", "Sus Road", "Swargate", "Swastishree Society", "Talajai Pathar", "Talawade", "Talegaon Dabhade", "Talegaon Dhamdhere", "Tanaji Nagar-Chinchwad", "Tathawade", "Thergaon", "Thite Nagar", "Tilak Road", "Tilekar Nagar", "Tingre Nagar", "Tulaja Bhawani Nagar", "Uday Baug", "Undri", "Urit Nagar", "Uruli Devachi", "Uruli Kanchan", "Vadar Wadi", "Vadgaon", "Vadgaon Budruk", "Vadgaon Maval", "Vallabh Nagar", "Varale", "Vijay Nagar-Kalewadi", "Viman Nagar", "Vishal Nagar", "Vishrantwadi", "Vittalvadi", "Vitthal Nagar-Kharadi", "Wadachi Wadi", "Wadgaon Budruk", "Wadgaon Sheri", "Wadki", "Wagholi", "Wagholi Nagar Road", "Wakad", "Wakad-Hinjewadi", "Wakadkar Wasti", "Wanawari", "Wanowrie", "Warje", "Yamuna Nagar", "Yerawada", "Yewalewadi"]
+                      for (var i=0; i < arr.length; i++)
+                      {
+                        var option = document.createElement("OPTION");
+                         txt = document.createTextNode(arr[i]);
+                         option.appendChild(txt);
+                         option.setAttribute("value",arr[i]);
+                         select.insertBefore(option,select.lastChild);
+                       }
+              </script>
+              <select name="condition" id="select1">
+                 <option value="default">default</option>
+             </select>
+              <script>
+                  var select =document.getElementById("select1")
+                      arr = ["Furnished", "Semi-Furnished", "Unfurnished"]
+                      for (var i=0; i < arr.length; i++)
+                      {
+                        var option = document.createElement("OPTION");
+                         txt = document.createTextNode(arr[i]);
+                         option.appendChild(txt);
+                         option.setAttribute("value",arr[i]);
+                         select.insertBefore(option,select.lastChild);
+                       }
+              </script>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict rent </button>
+        </Form>
+
+
+        <br>
+        <br>
+        {{prediction_text}}
+    </div>
+</body>
+</html>
